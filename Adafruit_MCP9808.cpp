@@ -84,7 +84,8 @@ bool Adafruit_MCP9808::init() {
   if (read16(MCP9808_REG_MANUF_ID) != 0x0054)
     return false;
   if (read16(MCP9808_REG_DEVICE_ID) != 0x0400)
-    return false;
+  	if (read16(MCP9808_REG_DEVICE_ID) != 0x0201)
+      return false;
 
   write16(MCP9808_REG_CONFIG, 0x0);
   return true;
